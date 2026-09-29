@@ -1,0 +1,89 @@
+/* ════════════ GENERAL ════════════ */
+body {
+  background-color: #f5f5f5;
+}
+
+/* ════════════ NAVBAR ════════════ */
+.navbar-brand {
+  font-weight: 700;
+}
+
+.navbar-blue {
+  background-color: #1565c0;
+}
+
+/* ════════════ HERO ════════════ */
+.hero {
+  background: linear-gradient(rgba(13, 71, 161, 0.75), rgba(13, 71, 161, 0.75)),
+              url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=1400') center/cover no-repeat;
+  min-height: 380px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+}
+
+/* ════════════ TITRES DE SECTION ════════════ */
+.section-title {
+  color: #1565c0;
+  font-weight: 700;
+}
+
+/* ════════════ FORMULAIRE ════════════ */
+.form-card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  padding: 40px;
+  margin: 40px auto;
+  max-width: 900px;
+}
+
+/* ════════════ TABLEAU APPRENANTS ════════════ */
+.table thead {
+  background-color: #bbdefb;
+}
+
+/* ════════════ CARTES FORMATIONS ════════════ */
+.formation-card {
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.formation-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.formation-card .card-body {
+  padding: 20px;
+}
+
+/* ════════════ FOOTER ════════════ */
+footer {
+  background-color: #1565c0;
+  color: white;
+  padding: 40px 0 20px;
+}
+
+footer a {
+  color: #bbdefb;
+  text-decoration: none;
+  display: block;
+  margin-bottom: 6px;
+}
+
+footer a:hover {
+  color: white;
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  margin-top: 30px;
+  padding-top: 15px;
+  text-align: center;
+  font-size: 14px;
+}

@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Centre Formation Pro</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
+
+  <!-- Notre fichier CSS -->
+  <link href="style.css" rel="stylesheet"/>
+</head>
+<body>
+
+  <!-- ════════════ NAVBAR ════════════ -->
+  <nav class="navbar navbar-expand-lg navbar-dark navbar-blue">
+    <div class="container">
+      <a class="navbar-brand" href="#">Centre Formation Pro</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navMenu">
+        <ul class="navbar-nav gap-3">
+          <li class="nav-item"><a class="nav-link" href="#accueil">Accueil</a></li>
+          <li class="nav-item"><a class="nav-link" href="#reservation">Réservation</a></li>
+          <li class="nav-item"><a class="nav-link" href="#apprenants">Apprenants</a></li>
+          <li class="nav-item"><a class="nav-link" href="#formations">Formations</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ════════════ HERO ════════════ -->
+  <section id="accueil" class="hero">
+    <div>
+      <h1 class="fw-bold fs-1 mb-3">Bienvenue au Centre Formation Pro</h1>
+      <p class="fs-5 mb-4">Développez vos compétences en informatique avec des formations pratiques et modernes.</p>
+      <a href="#reservation" class="btn btn-light btn-lg px-4">Réserver une formation</a>
+    </div>
+  </section>
+
+  <!-- ════════════ FORMULAIRE DE RÉSERVATION ════════════ -->
+  <section id="reservation">
+    <div class="form-card">
+      <h2 class="section-title text-center mb-4">Formulaire de réservation</h2>
+
+      <!-- Message de succès (caché par défaut) -->
+      <div id="messageSucces" class="alert alert-success d-none" role="alert">
+        ✅ Réservation envoyée avec succès ! L'apprenant a été ajouté à la liste.
+      </div>
+
+      <div class="row g-3">
+
+        <!-- Nom complet -->
+        <div class="col-md-6">
+          <label class="form-label">Nom complet</label>
+          <input type="text" id="inputNom" class="form-control" placeholder="Votre nom complet"/>
+        </div>
+
+        <!-- Email -->
+        <div class="col-md-6">
+          <label class="form-label">Adresse email</label>
+          <input type="email" id="inputEmail" class="form-control" placeholder="exemple@email.com"/>
+        </div>
+
+        <!-- Téléphone -->
+        <div class="col-md-6">
+          <label class="form-label">Numéro de téléphone</label>
+          <input type="tel" id="inputTel" class="form-control" placeholder="+212 600 000 000"/>
+        </div>
+
+        <!-- Formation -->
+        <div class="col-md-6">
+          <label class="form-label">Formation choisie</label>
+          <select id="inputFormation" class="form-select">
+            <option value="">Choisir une formation</option>
+            <option>Développement Web</option>
+            <option>Réseaux Informatiques</option>
+            <option>Cybersécurité</option>
+          </select>
+        </div>
+
+        <!-- Niveau -->
+        <div class="col-md-6">
+          <label class="form-label">Niveau actuel</label>
+          <select id="inputNiveau" class="form-select">
+            <option value="">Choisir votre niveau</option>
+            <option>Débutant</option>
+            <option>Intermédiaire</option>
+            <option>Avancé</option>
+          </select>
+        </div>
+
+        <!-- Date -->
+        <div class="col-md-6">
+          <label class="form-label">Date souhaitée</label>
+          <input type="date" id="inputDate" class="form-control"/>
+        </div>
+
+        <!-- Message -->
+        <div class="col-12">
+          <label class="form-label">Message complémentaire</label>
+          <textarea id="inputMessage" class="form-control" rows="4" placeholder="Écrivez votre message ici..."></textarea>
+        </div>
+
+        <!-- Bouton -->
+        <div class="col-12">
+          <button type="button" class="btn btn-primary px-4" onclick="ajouterApprenant()">
+            Envoyer la réservation
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════ LISTE DES APPRENANTS ════════════ -->
+  <section id="apprenants" class="container my-5">
+    <h2 class="section-title text-center mb-4">Liste des apprenants</h2>
+    <div class="table-responsive">
+      <table class="table table-bordered text-center">
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>Nom</th>
+            <th>Formation</th>
+          </tr>
+        </thead>
+        <tbody id="tableauApprenants">
+          <tr>
+            <td>1001</td>
+            <td>Yassine Amrani</td>
+            <td>Développement Web</td>
+          </tr>
+          <tr>
+            <td>1002</td>
+            <td>Salma El Fassi</td>
+            <td>Réseaux Informatiques</td>
+          </tr>
+          <tr>
+            <td>1003</td>
+            <td>Mehdi Bennani</td>
+            <td>Cybersécurité</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ════════════ NOS FORMATIONS ════════════ -->
+  <section id="formations" class="container my-5">
+    <h2 class="section-title text-center mb-4">Nos formations</h2>
+    <div class="row g-4">
+
+      <!-- Card 1 -->
+      <div class="col-md-4">
+        <div class="formation-card h-100">
+          <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=600" alt="Développement Web"/>
+          <div class="card-body">
+            <h5 class="fw-bold">Développement Web</h5>
+            <p class="text-muted">Apprenez HTML, CSS, JavaScript et Bootstrap pour créer des sites web modernes.</p>
+            <a href="#reservation" class="btn btn-primary btn-sm">S'inscrire</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="col-md-4">
+        <div class="formation-card h-100">
+          <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600" alt="Réseaux Informatiques"/>
+          <div class="card-body">
+            <h5 class="fw-bold">Réseaux Informatiques</h5>
+            <p class="text-muted">Découvrez les bases des réseaux, l'adressage IP, les routeurs et les protocoles.</p>
+            <a href="#reservation" class="btn btn-primary btn-sm">S'inscrire</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="col-md-4">
+        <div class="formation-card h-100">
+          <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=600" alt="Cybersécurité"/>
+          <div class="card-body">
+            <h5 class="fw-bold">Cybersécurité</h5>
+            <p class="text-muted">Comprenez les risques informatiques et apprenez à protéger les systèmes.</p>
+            <a href="#reservation" class="btn btn-primary btn-sm">S'inscrire</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ════════════ FOOTER ════════════ -->
+  <footer id="contact">
+    <div class="container">
+      <div class="row g-4">
+
+        <!-- Col 1 -->
+        <div class="col-md-4">
+          <h5 class="fw-bold mb-2">Centre Formation Pro</h5>
+          <p class="text-white-50">Centre spécialisé dans les formations informatiques pratiques.</p>
+        </div>
+
+        <!-- Col 2 -->
+        <div class="col-md-4">
+          <h5 class="fw-bold mb-2">Liens utiles</h5>
+          <a href="#accueil">Accueil</a>
+          <a href="#reservation">Réservation</a>
+          <a href="#formations">Formations</a>
+        </div>
+
+        <!-- Col 3 -->
+        <div class="col-md-4">
+          <h5 class="fw-bold mb-2">Contact</h5>
+          <p class="mb-1">Email : contact@formationpro.ma</p>
+          <p class="mb-1">Téléphone : +212 600 000 000</p>
+          <p class="mb-0">Adresse : Marrakech, Maroc</p>
+        </div>
+
+      </div>
+      <div class="footer-bottom text-white-50">
+        © 2025 Centre Formation Pro – Tous droits réservés.
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Notre JavaScript -->
+  <script>
+    // Compteur d'ID qui continue après 1003
+    var prochainId = 1004;
+
+    function ajouterApprenant() {
+      // Récupérer les valeurs des champs
+      var nom       = document.getElementById('inputNom').value.trim();
+      var formation = document.getElementById('inputFormation').value;
+
+      // Vérification : nom et formation sont obligatoires
+      if (nom === '' || formation === '') {
+        alert('Veuillez remplir au moins le Nom complet et la Formation choisie.');
+        return;
+      }
+
+      // Créer une nouvelle ligne dans le tableau
+      var tableau = document.getElementById('tableauApprenants');
+      var nouvelleLigne = document.createElement('tr');
+      nouvelleLigne.innerHTML =
+        '<td>' + prochainId + '</td>' +
+        '<td>' + nom + '</td>' +
+        '<td>' + formation + '</td>';
+
+      tableau.appendChild(nouvelleLigne);
+      prochainId++;
+
+      // Vider le formulaire
+      document.getElementById('inputNom').value     = '';
+      document.getElementById('inputEmail').value   = '';
+      document.getElementById('inputTel').value     = '';
+      document.getElementById('inputFormation').value = '';
+      document.getElementById('inputNiveau').value  = '';
+      document.getElementById('inputDate').value    = '';
+      document.getElementById('inputMessage').value = '';
+
+      // Afficher le message de succès
+      var msg = document.getElementById('messageSucces');
+      msg.classList.remove('d-none');
+
+      // Cacher le message après 3 secondes
+      setTimeout(function() {
+        msg.classList.add('d-none');
+      }, 3000);
+
+      // Faire défiler vers le tableau
+      document.getElementById('apprenants').scrollIntoView({ behavior: 'smooth' });
+    }
+  </script>
+
+</body>
+</html>
